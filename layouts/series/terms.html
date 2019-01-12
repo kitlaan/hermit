@@ -1,0 +1,39 @@
+{{ define "header" }}
+{{ partialCached "header.html" . }}
+{{ end }}
+
+{{ define "main" }}
+	<main class="site-main section-inner thin animated fadeIn faster">
+		<h1>{{ .Title }}</h1>
+		{{- if .Content }}
+		<div class="content">
+			{{ .Content }}
+		</div>
+		{{- end }}
+		<div class="posts-group">
+			<ul class="posts-list">
+				{{- $type := .Type }}
+				{{- range $key, $value := .Data.Terms.Alphabetical }}
+				{{- $name := .Name }}
+				{{- $count := .Count }}
+				{{- with $.Site.GetPage (printf "/%s/%s" $type $name) }}
+				<li class="post-item">
+					<a href="{{ .Permalink }}">
+						<span class="post-title">
+							{{- range (index .Pages 0).Params.series }}
+							{{- if eq $name (. | urlize) }}{{ . }}{{ end }}
+							{{- end -}}
+						</span>
+						<span class="post-day">{{ $count }}</span>
+					</a>
+				</li>
+				{{- end }}
+				{{- end }}
+			</ul>
+		</div>
+	</main>
+{{ end }}
+
+{{ define "footer" }}
+{{ partialCached "footer.html" . }}
+{{ end }}

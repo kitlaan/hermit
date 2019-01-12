@@ -4,7 +4,12 @@
 
 {{ define "main" }}
 	<main class="site-main section-inner thin animated fadeIn faster">
-	<h1><a href="..">Tag</a> {{ .Data.Term }}</h1>
+		<h1>
+			{{- $term := .Data.Term }}
+			{{- range (index .Pages 0).Params.series }}
+				{{- if eq $term (. | urlize) }}{{ . }}{{ end }}
+			{{- end -}}
+		</h1>
 		{{- if .Content }}
 		<div class="content">
 			{{ .Content }}
