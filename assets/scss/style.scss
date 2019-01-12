@@ -587,7 +587,13 @@ hr.post-end {
     margin-right: .5em;
 
     &::before {
-      content: "#"
+      content: "#";
+    }
+  }
+
+  .series:nth-of-type(n+2) {
+    &::before {
+      content: " | ";
     }
   }
 }
