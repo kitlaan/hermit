@@ -21,7 +21,7 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
 
 [taxonomies]
   tag = "tags"
-  category = ""  # Categories are disabled by default.
+  #category = ""  # Categories are disabled by default.
 
 [params]
   dateform        = "Jan 2, 2006"
@@ -43,6 +43,9 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
 
   # Toggle this option need to rebuild SCSS, requires extended version of Hugo
   justifyContent = false  # Set "text-align: justify" to .content.
+
+  # Show TOC by default
+  showTOC = false
 
   # Add custom css
   # customCSS = ["css/foo.css", "css/bar.css"]

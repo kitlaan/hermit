@@ -51,7 +51,7 @@
 			</footer>
 		</article>
 		{{- if .Params.toc }}
-		<aside id="toc">
+		<aside id="toc" {{ if .Site.Params.showTOC }}class="show-toc"{{ end }}>
 			<div class="toc-title">{{ i18n "tableOfContents" }}</div>
 			{{ .TableOfContents }}
 		</aside>
